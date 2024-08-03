@@ -1,5 +1,4 @@
-# Hi there
-, 
+# Hi there, 
 
 I'm Abdul or @aadinoyiibrahim:
 
@@ -19,4 +18,9 @@ I'm Abdul or @aadinoyiibrahim:
     <img src ="./figs/allpaths.png"><br>
     <img src ="./figs/allpaths2.png"><br>
     </p>
-You can get in touch via abdullahi.ibrahim[at]tuebingen.mpg.de
+
+My research codes are available on GitHub. You can find direct links to the relevant repositories at the end of each published paper.
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/aadinoyiibrahimanuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+
+For any inquiries, please contact me at abdullahi.ibrahim[at]tuebingen.mpg.de.
