@@ -1,16 +1,22 @@
-## Hi there 👋
+# Hi there
+, 
 
-<!--
-**aadinoyiibrahim/aadinoyiibrahim** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm Abdul or @aadinoyiibrahim:
 
-Here are some ideas to get you started:
+ - PhD in Computer Science from Max Planck Institute for Intelligent Systems and University of Tübingen, Germany, specializing in routing optimization and sustainability
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+ - Expertise in machine learning, network flow optimization, data science, and algorithm development. Proficient in Python and associated libraries, with skills in visualization, model deployment, and cloud computing
+
+ - Here are some highlighted projects:
+    - waveform amplitude prediction
+
+    <p align="center">
+    <img src ="./figs/waveform_pred.png"><br>
+    </p>
+
+    - Optimal transport in networks
+    <p align="center">
+    <img src ="./figs/allpaths.png"><br>
+    <img src ="./figs/allpaths2.png"><br>
+    </p>
+You can get in touch via abdullahi.ibrahim[at]tuebingen.mpg.de
