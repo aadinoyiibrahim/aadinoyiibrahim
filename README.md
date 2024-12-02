@@ -6,9 +6,9 @@ I'm Abdul or @aadinoyiibrahim:
 
  - Expertise in network flow optimization, data science/AI, and algorithm development. Proficient in Python and associated libraries, with skills in visualization, model deployment, and cloud computing
 
-# Here are some highlighted projects:
+## Here are some highlighted projects:
 
-## Adaptation equation, Optimal transport, network science
+### Adaptation equation, Optimal transport, network science
     - waveform amplitude prediction
 
     <p align="center">
