@@ -45,7 +45,7 @@ learning.
 </p>
 
 
-### 2. Deep learning & NLP
+### 2. Data science, Deep learning & NLP
 
 - a). [Brain Tumor MRI Scans dataset](https://github.com/aadinoyiibrahim/brain-tumor-analysis-with-densenet): 
 The task was to classify MRI images to different types of conditions or tumors related to the brain and surrounding tissues. The specific goal is to develop a convolutional neural network model to detect whether an MRI brain image is glioma, meningioma, pituitary or healthy. To address this, I implemented two variants of the DenseNet model to classify these images. To ensure better understanding of the model's performance, two evaluation techniques were implemented: the \underline{loss of Epochs and accuracy}. The models were able to accurately classify brain tumor MRI scans with high accuracies of $0.94$ and $0.96$. %Details of these projects can be accessed on my GitHub page.
@@ -59,17 +59,15 @@ The task was to classify MRI images to different types of conditions or tumors r
 
 <p align="center">
     <img src ="./figs/nlp.png"><br>
-</p>
+</p> 
 
-### 3. Data science  
-
-- a). waveform amplitude prediction
+- c). waveform amplitude prediction
 
 <p align="center">
     <img src ="./figs/waveform_pred.png"><br>
 </p>
 
-- b). [Comparison of the CatBoost Classifier with other
+- d). [Comparison of the CatBoost Classifier with other
 Machine Learning Methods](https://thesai.org/Downloads/Volume11No11/Paper_90-Comparison_of_the_CatBoost_Classifier.pdf):  
 We carry out data clearning on some real data. Then compared the
 algorithm’s performance of some classifiers.
@@ -78,7 +76,7 @@ algorithm’s performance of some classifiers.
     <img src ="./figs/roc.png"><br>
 </p>
 
-- c). [Analysis of Titanic Disaster using Machine Learning Algorithms](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2r75Y_UAAAAJ&citation_for_view=2r75Y_UAAAAJ:L8Ckcad2t8MC):  
+- e). [Analysis of Titanic Disaster using Machine Learning Algorithms](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2r75Y_UAAAAJ&citation_for_view=2r75Y_UAAAAJ:L8Ckcad2t8MC):  
 we explored the Titanic data and four machine learning algorithms namely XGBoost, CatBoost, Decision trees, Random forests were implemented to predict survival rate of passengers. Some factors such as" Age"," Gender"," Children" played a key role towards the survival of Passengers. 
 
 <p align="center">
