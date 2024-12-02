@@ -28,7 +28,7 @@ In standard OT methods (i.e., see 1.a above), beyond few obvious constraints (e.
 The ORC-Nextrout algorithm is designed to recover community structures in networks. We do this by taking inspiration from recent approaches that connect community detection with geometry, using the notion of Ollivier-Ricci curvature (ORC) to detect communities, and combining with a recent Optimal Transport (OT) approach that allows tuning for traffic penalization.
 
 <p align="center">
-    <img src ="./figs/commDetection.png"><br>
+    <img src ="./figs/commDetection"><br>
 </p>
 
 ### 2. Deep learning & NLP
