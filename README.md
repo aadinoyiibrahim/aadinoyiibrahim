@@ -28,13 +28,30 @@ In standard OT methods (i.e., see 1.a above), beyond few obvious constraints (e.
 The ORC-Nextrout algorithm is designed to recover community structures in networks. We do this by taking inspiration from recent approaches that connect community detection with geometry, using the notion of Ollivier-Ricci curvature (ORC) to detect communities, and combining with a recent Optimal Transport (OT) approach that allows tuning for traffic penalization.
 
 <p align="center">
-    <img src ="./figs/commDetection"><br>
+    <img src ="./figs/commDectection"><br>
 </p>
+
+- d). [Capacitated vehicle routing problem](https://pisrt.org/psrpress/j/odam/2020/1/8/capacitated-vehicle-routing-problem-with-column-generation-and-reinforcement-learning-techniques.pdf):
+Our goal is to find optimal set of routes for some vehicles delivering goods or services to
+some known locations, and without exceeding the capacity. To address this; we formulated a mathematical model for the CVRP problem, develop a reinforcement learning framework for solving CVRP, and
+compare the optimal gap between column generation, Google’s operations research tools and reinforcement
+learning.
+
+<p align="center">
+    <img src ="./figs/cvrp"><br>
+</p>
+
+- e). [Traveling Salesman problem](https://pisrt.org/psrpress/j/odam/2019/3/4/a-comparative-analysis-of-the-travelling-salesman-problem-exact-and-machine-learning-techniques.pdf):
+ TSP describes a salesman who must travel through n cities. Our goal is to develop a machine learning algorithm to solve TSP and compare the solution exact method to determine the optimal gap. To achieving this, we develop a mathematical formulation for TSP, develop a machine learning algorithm, and apply this method on solving large size problem.
+
+ <p align="center">
+    <img src ="./figs/tsp"><br>
+</p>
+
 
 ### 2. Deep learning & NLP
 
 - a). [Brain Tumor MRI Scans dataset](https://github.com/aadinoyiibrahim/brain-tumor-analysis-with-densenet): 
-
 The task was to classify MRI images to different types of conditions or tumors related to the brain and surrounding tissues. The specific goal is to develop a convolutional neural network model to detect whether an MRI brain image is glioma, meningioma, pituitary or healthy. To address this, I implemented two variants of the DenseNet model to classify these images. To ensure better understanding of the model's performance, two evaluation techniques were implemented: the \underline{loss of Epochs and accuracy}. The models were able to accurately classify brain tumor MRI scans with high accuracies of $0.94$ and $0.96$. %Details of these projects can be accessed on my GitHub page.
 
 <p align="center">
@@ -50,11 +67,13 @@ The task was to classify MRI images to different types of conditions or tumors r
 
 ### 3. Data science  
 
-    - waveform amplitude prediction
+    - a). waveform amplitude prediction
 
     <p align="center">
     <img src ="./figs/waveform_pred.png"><br>
     </p>
+
+    - b). 
 
 
 My research codes are available on GitHub. You can find direct links to the relevant repositories at the end of each published paper.
