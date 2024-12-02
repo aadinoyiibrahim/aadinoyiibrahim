@@ -86,7 +86,7 @@ algorithm’s performance of some classifiers.
 we explored the Titanic data and four machine learning algorithms namely XGBoost, CatBoost, Decision trees, Random forests were implemented to predict survival rate of passengers. Some factors such as" Age"," Gender"," Children" played a key role towards the survival of Passengers. 
 
 <p align="center">
-    <img src ="./figs/roc.png"><br>
+    <img src ="./figs/roc2_titanic.png"><br>
 </p>
 
 My research codes are available on GitHub. You can find direct links to the relevant repositories at the end of each published paper.
