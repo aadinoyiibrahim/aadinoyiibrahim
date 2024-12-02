@@ -38,14 +38,14 @@ compare the optimal gap between column generation, Google’s operations researc
 learning.
 
 <p align="center">
-    <img src ="./figs/cvrp"><br>
+    <img src ="./figs/cvrp.png"><br>
 </p>
 
 - e). [Traveling Salesman problem](https://pisrt.org/psrpress/j/odam/2019/3/4/a-comparative-analysis-of-the-travelling-salesman-problem-exact-and-machine-learning-techniques.pdf):
  TSP describes a salesman who must travel through n cities. Our goal is to develop a machine learning algorithm to solve TSP and compare the solution exact method to determine the optimal gap. To achieving this, we develop a mathematical formulation for TSP, develop a machine learning algorithm, and apply this method on solving large size problem.
 
  <p align="center">
-    <img src ="./figs/tsp"><br>
+    <img src ="./figs/tsp.png"><br>
 </p>
 
 
