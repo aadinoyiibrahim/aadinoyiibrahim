@@ -1,4 +1,5 @@
 ![Description](./figs/network.gif)
+<img src="./figs/network.gif" width="600">
 
 # Hi there, 
 
