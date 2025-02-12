@@ -1,6 +1,4 @@
-![Description](./figs/network.gif)
 <img src="./figs/network.gif" width="900">
-
 # Hi there, 
 
 I'm Abdul, I hold a PhD in Computer Science from Max Planck Institute for Intelligent Systems and University of Tübingen, Germany.
