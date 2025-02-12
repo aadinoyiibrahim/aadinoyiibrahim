@@ -1,3 +1,6 @@
+  <p align="center">
+    <img src ="./mpi-is.jpeg"><br>
+    </p>
 # Hi there, 
 
 I'm Abdul, I hold a PhD in Computer Science from Max Planck Institute for Intelligent Systems and University of Tübingen, Germany.
