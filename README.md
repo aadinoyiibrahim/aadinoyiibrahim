@@ -1,5 +1,5 @@
 ![Description](./figs/network.gif)
-<img src="./figs/network.gif" style="width:100%; max-width:100%;" alt="Network GIF">
+<img src="./figs/network.gif" width="900">
 
 # Hi there, 
 
