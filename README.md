@@ -1,8 +1,8 @@
-<img src="./figs/Animated.gif" width="900">
+<!-- <img src="./figs/Animated.gif" width="900"> -->
 
-# Hi there, 
+# Hi there, I'm Abdul  👋 
 
-I'm Abdul, I hold a PhD in Computer Science from Max Planck Institute for Intelligent Systems and University of Tübingen, Germany.
+I'm Abdul, I hold a PhD in Computer Science from Max Planck Institute for Intelligent Systems and University of Tübingen, Germany. Currently a PostDoc at SynoSys, TU Dresden. 
 
 ## Here are some highlighted projects:
 
