@@ -1,4 +1,4 @@
-<img src="./figs/Animated.gif" width="500">
+<img src="./figs/Animated.gif" width="900">
 
 # Hi there, I'm Abdul  👋 
 
