@@ -1,8 +1,9 @@
-<img src="./figs/Animated3.gif" width="1000">
-<!-- https://gifer.com/en/s/world-map-transport -->
 # Hi there, I'm Abdul  👋 
 
 I'm Abdul, I hold a PhD in Computer Science from Max Planck Institute for Intelligent Systems and University of Tübingen, Germany. Currently a PostDoc at SynoSys, TU Dresden. 
+
+<img src="./figs/Animated3.gif" width="1000">
+<!-- https://gifer.com/en/s/world-map-transport -->
 
 ## Here are some highlighted projects:
 
