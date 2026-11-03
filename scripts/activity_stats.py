@@ -213,7 +213,7 @@ def _plot_per_repo(ax, per_repo, top_n):
         ax.spines[s].set_color(TEXT)
     ax.set_xlim(0, max(left or [1]) * 1.15)
     ax.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(integer=True))
-    ax.set_title(f"(b) Top {len(ranked)} projects", color=TEXT, fontsize=11,
+    ax.set_title(f"(b) Top {len(ranked)} projects (public)", color=TEXT, fontsize=11,
                  loc="left")
     leg = ax.legend(frameon=False, fontsize=9, loc="lower right")
     for t in leg.get_texts():
