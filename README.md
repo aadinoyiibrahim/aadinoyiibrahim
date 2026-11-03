@@ -88,6 +88,13 @@ we explored the Titanic data and four machine learning algorithms namely XGBoost
 
 My research codes are available on GitHub. You can find direct links to the relevant repositories at the end of each published paper.
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=aadinoyiibrahim)](https://github.com/aadinoyiibrahim/github-readme-stats)
+## My GitHub activity (last 12 months)
+
+<p align="center">
+    <img src="./figs/activity_overview.png" width="1000"><br>
+    <sub>Auto-updated daily by <code>.github/workflows/activity-stats.yml</code></sub>
+</p>
+
+[![Abdul's GitHub stats](https://github-readme-stats.vercel.app/api?username=aadinoyiibrahim)](https://github.com/aadinoyiibrahim)
 
 For any inquiries, please contact me at abdullahi.ibrahim[at]{tuebingen.mpg.de, tu-dresden.de}.
