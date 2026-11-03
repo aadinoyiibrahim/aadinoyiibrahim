@@ -95,6 +95,4 @@ My research codes are available on GitHub. You can find direct links to the rele
     <sub>Auto-updated daily by <code>.github/workflows/activity-stats.yml</code></sub>
 </p>
 
-[![Abdul's GitHub stats](https://github-readme-stats.vercel.app/api?username=aadinoyiibrahim)](https://github.com/aadinoyiibrahim)
-
 For any inquiries, please contact me at abdullahi.ibrahim[at]{tuebingen.mpg.de, tu-dresden.de}.
