@@ -34,6 +34,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.ticker  # noqa: E402,F401
 import requests  # noqa: E402
 
 GRAPHQL_URL = "https://api.github.com/graphql"
@@ -65,20 +66,22 @@ query($login: String!) {
       totalIssueContributions
       totalPullRequestReviewContributions
       restrictedContributionsCount
+      totalRepositoryContributions
+      contributionCalendar { totalContributions }
       commitContributionsByRepository(maxRepositories: 100) {
-        repository { nameWithOwner }
+        repository { nameWithOwner isPrivate }
         contributions { totalCount }
       }
       pullRequestContributionsByRepository(maxRepositories: 100) {
-        repository { nameWithOwner }
+        repository { nameWithOwner isPrivate }
         contributions { totalCount }
       }
       issueContributionsByRepository(maxRepositories: 100) {
-        repository { nameWithOwner }
+        repository { nameWithOwner isPrivate }
         contributions { totalCount }
       }
       pullRequestReviewContributionsByRepository(maxRepositories: 100) {
-        repository { nameWithOwner }
+        repository { nameWithOwner isPrivate }
         contributions { totalCount }
       }
     }
@@ -103,11 +106,16 @@ def fetch_contributions(login, token):
 
 
 def summarise(cc):
-    """Raw collection -> (totals, per_repo, period).
+    """Raw collection -> (totals, per_repo, period, meta).
 
     totals   : {kind: int}
-    per_repo : {repo_name: {kind: int}}
+    per_repo : {repo_name: {kind: int}}; private repos are pooled into one
+               "private repositories (n)" row so their names never reach
+               the public README.
     period   : (startedAt, endedAt) ISO strings
+    meta     : {calendar, restricted, repos_created} -- the extra terms
+               needed to reconcile with the heatmap total:
+               calendar = sum(totals) + restricted + repos_created
     """
     totals = {
         "commits": cc["totalCommitContributions"],
@@ -121,16 +129,27 @@ def summarise(cc):
         "issues": "issueContributionsByRepository",
         "reviews": "pullRequestReviewContributionsByRepository",
     }
-    per_repo = {}
+    per_repo, private = {}, set()
     for kind, key in field.items():
         for item in cc[key]:
-            name = item["repository"]["nameWithOwner"]
+            repo = item["repository"]
+            name = repo["nameWithOwner"]
+            if repo["isPrivate"]:
+                private.add(name)
+                name = "PRIVATE"
             per_repo.setdefault(name, dict.fromkeys(KINDS, 0))
             per_repo[name][kind] += item["contributions"]["totalCount"]
-    return totals, per_repo, (cc["startedAt"], cc["endedAt"])
+    if "PRIVATE" in per_repo:
+        per_repo[f"private repositories ({len(private)})"] = per_repo.pop("PRIVATE")
+    meta = {
+        "calendar": cc["contributionCalendar"]["totalContributions"],
+        "restricted": cc["restrictedContributionsCount"],
+        "repos_created": cc["totalRepositoryContributions"],
+    }
+    return totals, per_repo, (cc["startedAt"], cc["endedAt"]), meta
 
 
-def _plot_cross(ax, totals):
+def _plot_cross(ax, totals, meta):
     """GitHub-style cross: arm length ∝ share of each contribution type."""
     n = sum(totals.values()) or 1
     pct = {k: 100 * v / n for k, v in totals.items()}
@@ -147,7 +166,8 @@ def _plot_cross(ax, totals):
         L = pct[k] / 100
         ax.plot([0, dx * L], [0, dy * L], color=COLORS[k], lw=5,
                 solid_capstyle="round")
-        ax.plot(dx * L, dy * L, "o", color=COLORS[k], ms=8)
+        if L > 0:  # no dot for an empty arm (would pile up at the centre)
+            ax.plot(dx * L, dy * L, "o", color=COLORS[k], ms=8)
         # Label just beyond the axis end so it never overlaps the arm.
         tx, ty = dx * 1.18, dy * 1.18
         ha = {-1: "right", 0: "center", 1: "left"}[dx]
@@ -158,8 +178,17 @@ def _plot_cross(ax, totals):
     ax.set_ylim(-1.6, 1.6)
     ax.set_aspect("equal")
     ax.axis("off")
-    ax.set_title(f"(a) Activity overview  ·  {n} contributions",
-                 color=TEXT, fontsize=11, loc="left")
+    ax.set_title(f"(a) Activity overview  ·  {n} of {meta['calendar']} "
+                 "contributions", color=TEXT, fontsize=11, loc="left")
+    # Account for the rest of the heatmap total under the cross.
+    rest = [f"{n} commits/PRs/issues/reviews"]
+    if meta["restricted"]:
+        rest.append(f"{meta['restricted']} private (type not visible)")
+    if meta["repos_created"]:
+        rest.append(f"{meta['repos_created']} repositories created")
+    ax.text(0.5, -0.02, " + ".join(rest) + f" = {meta['calendar']}",
+            transform=ax.transAxes, ha="center", va="top", color=TEXT,
+            fontsize=8)
 
 
 def _plot_per_repo(ax, per_repo, top_n):
@@ -183,6 +212,7 @@ def _plot_per_repo(ax, per_repo, top_n):
     for s in ("left", "bottom"):
         ax.spines[s].set_color(TEXT)
     ax.set_xlim(0, max(left or [1]) * 1.15)
+    ax.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(integer=True))
     ax.set_title(f"(b) Top {len(ranked)} projects", color=TEXT, fontsize=11,
                  loc="left")
     leg = ax.legend(frameon=False, fontsize=9, loc="lower right")
@@ -190,12 +220,12 @@ def _plot_per_repo(ax, per_repo, top_n):
         t.set_color(TEXT)
 
 
-def plot_activity(totals, per_repo, period, outdir_, top_n=8):
+def plot_activity(totals, per_repo, period, meta, outdir_, top_n=8):
     """Two-panel figure saved as <outdir_>/activity_overview.png."""
     fig, (ax_a, ax_b) = plt.subplots(
         1, 2, figsize=(13, 4.6), gridspec_kw={"width_ratios": [1, 1.6]}
     )
-    _plot_cross(ax_a, totals)
+    _plot_cross(ax_a, totals, meta)
     _plot_per_repo(ax_b, per_repo, top_n)
     fig.text(0.99, 0.01, f"{period[0][:10]} → {period[1][:10]}",
              ha="right", color=TEXT, fontsize=8)
@@ -219,14 +249,22 @@ def main():
                  "private contributions).")
     outdir_ = args.outdir if args.outdir.endswith("/") else args.outdir + "/"
 
-    totals, per_repo, period = summarise(fetch_contributions(args.login, token))
-    plot_activity(totals, per_repo, period, outdir_, top_n=args.top)
+    totals, per_repo, period, meta = summarise(
+        fetch_contributions(args.login, token))
+    plot_activity(totals, per_repo, period, meta, outdir_, top_n=args.top)
 
     n = sum(totals.values()) or 1
     print("period:", period)
     for k in KINDS:
         print(f"  {LABELS[k]:<14} {totals[k]:>5}  ({100 * totals[k] / n:.1f}%)")
     print(f"  repositories: {len(per_repo)}")
+    # Sanity check: the pieces must add up to the heatmap number.
+    parts = n_raw = sum(totals.values())
+    parts += meta["restricted"] + meta["repos_created"]
+    print(f"  {n_raw} + {meta['restricted']} private + {meta['repos_created']}"
+          f" repos created = {parts}  (heatmap: {meta['calendar']})")
+    if parts != meta["calendar"]:
+        print("  WARNING: does not reconcile with the heatmap total")
 
 
 if __name__ == "__main__":
